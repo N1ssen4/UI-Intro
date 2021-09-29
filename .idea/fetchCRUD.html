@@ -104,10 +104,14 @@
             makeRows()
         }
 
-        if (target.dataset.dataEdit) {
-            const user = JSON.parse(target.dataset.dataEdit)
-            showModal(user)
-
+        // if (target.dataset.dataEdit) {
+        //     const user = JSON.parse(target.dataset.dataEdit)
+        //     showModal(user)
+        //}
+        if (target.dataset.idEdit){
+            const idToDelete = Number(target.dataset.idEdit)
+            const user = users.find(u=>u.id==idToDelete)
+            showModal()
         }
     }
 
@@ -167,7 +171,8 @@
         <td>${u.gender}</td>
         <td>${u.email} </td>
         <td><a data-id-delete =${u.id} href="#">Delete</td>
-        <td><a data-data-edit ='${JSON.stringify((u))}' href="#">Edit</td>
+        <td><a data-id-edit =${u.id} href="#">Edit</td>
+        <!-- <td><a data-data-edit ='${JSON.stringify((u))}' href="#">Edit</td> -->
             </tr>
 
         `))
